@@ -119,6 +119,7 @@ pearmedia-ai-prototype/
     ├── App.jsx                 # Tab layout — Creative Studio / Style Lab
     ├── App.css                 # Global styles and animations
     ├── components/
+    │   ├── Navbar.jsx    
     │   ├── WorkflowText.jsx    # Step 1: input → Step 2: approve → Step 3: image
     │   └── WorkflowImage.jsx   # Step 1: upload → Step 2: analyse → Step 3: variation
     └── utils/

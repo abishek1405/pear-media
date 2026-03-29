@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getEnhancedPrompt, generateImage } from "./apiHelpers";
+import { getEnhancedPrompt, generateImage } from "../utils/apiHelpers";
 
 export default function WorkflowText() {
   const [userPrompt, setUserPrompt]   = useState("");

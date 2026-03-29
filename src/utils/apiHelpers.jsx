@@ -1,6 +1,3 @@
-
-
-
 const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
 const BASE = "https://api.openai.com/v1";
 

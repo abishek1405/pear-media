@@ -3,20 +3,14 @@ import { useState } from "react";
 import WorkflowText  from "./components/WorkflowText";
 import WorkflowImage from "./components/WorkflowImage";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [tab, setTab] = useState("text");
 
   return (
     <div className="app">
-      <nav className="navbar">
-        <div className="brand">
-          <span className="brand-icon">🍐</span>
-          <span className="brand-name">Pear Media</span>
-          <span className="brand-tag">AI Lab</span>
-        </div>
-      </nav>
-
+      <Navbar/>
       <div className="tab-bar">
         <button
           className={`tab-btn ${tab === "text" ? "active" : ""}`}

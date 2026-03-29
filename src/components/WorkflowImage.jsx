@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { analyzeImage, generateVariation } from "./apiHelpers";
+import { analyzeImage, generateVariation } from "../utils/apiHelpers";
 
 export default function WorkflowImage() {
   const [preview, setPreview]         = useState("");   

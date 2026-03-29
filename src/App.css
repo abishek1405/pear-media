@@ -1,0 +1,337 @@
+/* src/App.css — Pear Media "Clean Tech" aesthetic */
+
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --indigo:      #6366f1;
+  --indigo-dark: #4f46e5;
+  --violet:      #8b5cf6;
+  --indigo-soft: #eef2ff;
+  --text-pri:    #0f172a;
+  --text-sec:    #64748b;
+  --border:      #e2e8f0;
+  --bg:          #f8faff;
+  --white:       #ffffff;
+  --success:     #059669;
+  --error:       #dc2626;
+  --radius:      14px;
+  --shadow:      0 2px 12px rgba(99,102,241,.08);
+}
+
+body {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text-pri);
+  min-height: 100vh;
+}
+
+/* ── Navbar ───────────────────────────────────────────────────────────── */
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { font-size: 22px; }
+.brand-name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.4px;
+  color: var(--text-pri);
+}
+.brand-tag {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--indigo-soft);
+  color: var(--indigo-dark);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* ── Tab bar ──────────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+
+.tab-btn {
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: var(--text-sec);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.tab-btn:hover { color: var(--indigo); }
+.tab-btn.active {
+  color: var(--indigo-dark);
+  border-bottom-color: var(--indigo);
+  font-weight: 600;
+}
+
+/* ── Page header ──────────────────────────────────────────────────────── */
+.page-header {
+  max-width: 680px;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem;
+}
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.5px;
+  margin-bottom: 6px;
+}
+.page-header p { font-size: 15px; color: var(--text-sec); }
+
+/* ── Main layout ──────────────────────────────────────────────────────── */
+.main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+/* ── Workflow container ───────────────────────────────────────────────── */
+.workflow-container { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* ── Step indicator ───────────────────────────────────────────────────── */
+.steps-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 1rem 0 .5rem;
+}
+.step-dot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  position: relative;
+}
+.step-dot:not(:last-child)::after {
+  content: "";
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 8px;
+}
+.dot-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-sec);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .3s, color .3s;
+}
+.dot-label {
+  font-size: 12px;
+  color: var(--text-sec);
+  white-space: nowrap;
+}
+.step-dot.active .dot-num { background: var(--indigo); color: #fff; }
+.step-dot.done .dot-num   { background: #d1fae5; color: var(--success); }
+
+/* ── Card ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  box-shadow: var(--shadow);
+}
+
+/* ── Form fields ──────────────────────────────────────────────────────── */
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text-sec);
+}
+
+.field-textarea {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text-pri);
+  resize: vertical;
+  transition: border-color .2s;
+  background: var(--bg);
+}
+.field-textarea:focus {
+  outline: none;
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+}
+.field-textarea:disabled { opacity: .6; cursor: not-allowed; }
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.btn-primary {
+  align-self: flex-start;
+  padding: 10px 22px;
+  background: var(--indigo);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.btn-primary:hover:not(:disabled)  { background: var(--indigo-dark); }
+.btn-primary:active:not(:disabled) { transform: scale(.98); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn-secondary {
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--indigo-dark);
+  border: 1px solid var(--indigo);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn-secondary:hover { background: var(--indigo-soft); }
+
+/* ── Upload area ──────────────────────────────────────────────────────── */
+.upload-card { gap: .875rem; }
+
+.upload-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  min-height: 180px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color .2s, background .2s;
+}
+.upload-zone:hover { border-color: var(--indigo); background: var(--indigo-soft); }
+
+.upload-placeholder {
+  font-size: 14px;
+  color: var(--text-sec);
+}
+
+.upload-preview {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+/* ── Analysis grid ────────────────────────────────────────────────────── */
+.analysis-grid { display: flex; flex-direction: column; gap: 8px; }
+
+.analysis-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.analysis-row:last-child { border-bottom: none; }
+
+.analysis-label {
+  min-width: 120px;
+  font-weight: 500;
+  color: var(--text-sec);
+  font-size: 13px;
+}
+.analysis-value { color: var(--text-pri); }
+
+.color-swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.color-chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--indigo-soft);
+  color: var(--indigo-dark);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── Result card ──────────────────────────────────────────────────────── */
+.result-card { gap: .875rem; }
+.result-img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.result-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ── Progress bar ─────────────────────────────────────────────────────── */
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: var(--indigo-soft);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  width: 40%;
+  height: 100%;
+  background: var(--indigo);
+  border-radius: 99px;
+  animation: progress-slide 1.4s ease-in-out infinite alternate;
+}
+@keyframes progress-slide {
+  from { transform: translateX(-60%); }
+  to   { transform: translateX(250%); }
+}
+
+/* ── Status message ───────────────────────────────────────────────────── */
+.status-msg {
+  font-size: 13px;
+  color: var(--text-sec);
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.status-msg.success { color: var(--success); background: #f0fdf4; border-color: #a7f3d0; }
+.status-msg.error   { color: var(--error);   background: #fef2f2; border-color: #fecaca; }
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-sec);
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .page-header, .main { padding-left: .75rem; padding-right: .75rem; }
+  .tab-btn { padding: 12px 16px; font-size: 13px; }
+  .dot-label { display: none; }
+}
